@@ -230,27 +230,28 @@
     .knoppen {
       width: 100%;
       height: 40px;
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 8px;
-      align-items: flex-start;
+      display: grid;
+      grid-template-columns: 0.75fr 1.35fr 0.9fr 0.95fr 0.75fr 0.75fr 1fr 1.25fr;
+      gap: 6px;
+      align-items: start;
       overflow: hidden;
     }
 
     .spelknop {
       height: 36px;
-      padding: 0 10px;
+      padding: 0 6px;
       border: none;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 10.5px;
       font-weight: 900;
       color: #ffffff;
       background: rgba(255,255,255,0.17);
       border: 1px solid rgba(255,255,255,0.18);
       white-space: nowrap;
-      flex: 1 1 0;
       min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .spelknop.actief {
@@ -314,13 +315,13 @@
 
         <div class="knoppen">
           <button class="spelknop actief" onclick="toonSpel('voetbal', this)">Voetbal</button>
-          <button class="spelknop" onclick="toonSpel('stratego', this)">Stratego</button>
+          <button class="spelknop" onclick="toonSpel('stratego', this)">Levend stratego</button>
           <button class="spelknop" onclick="toonSpel('logokwis', this)">Logokwis</button>
           <button class="spelknop" onclick="toonSpel('bootcamp', this)">Bootcamp</button>
           <button class="spelknop" onclick="toonSpel('tennis', this)">Tennis</button>
           <button class="spelknop" onclick="toonSpel('paddel', this)">Paddel</button>
           <button class="spelknop" onclick="toonSpel('kickboxen', this)">Kickboxen</button>
-          <button class="spelknop" onclick="toonSpel('hanoi', this)">Hanoi</button>
+          <button class="spelknop" onclick="toonSpel('hanoi', this)">Toren van Hanoi</button>
         </div>
       </section>
     </div>
