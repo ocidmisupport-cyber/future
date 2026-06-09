@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sportdag Introweek</title>
+  <title>Your Future in ICT</title>
 
   <style>
     * {
@@ -23,29 +23,53 @@
     .pagina {
       width: 1000px;
       height: 500px;
-      padding: 24px 34px;
+      padding: 26px 34px;
       border-radius: 20px;
-      color: white;
       overflow: hidden;
+      color: white;
       background:
-        radial-gradient(circle at 12% 18%, rgba(34,197,94,0.30), transparent 28%),
-        radial-gradient(circle at 86% 18%, rgba(59,130,246,0.34), transparent 30%),
-        radial-gradient(circle at 86% 86%, rgba(251,191,36,0.22), transparent 28%),
-        linear-gradient(135deg, #0f172a 0%, #0f766e 45%, #2563eb 100%);
+        radial-gradient(circle at 14% 16%, rgba(34,211,238,0.32), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(168,85,247,0.34), transparent 30%),
+        radial-gradient(circle at 84% 86%, rgba(34,197,94,0.25), transparent 28%),
+        linear-gradient(135deg, #0f172a 0%, #1e1b4b 42%, #0f766e 100%);
       box-shadow: 0 24px 55px rgba(0,0,0,0.45);
+      position: relative;
+    }
+
+    .decoratie {
+      position: absolute;
+      color: rgba(255,255,255,0.08);
+      font-weight: 900;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .decoratie.een {
+      right: 34px;
+      top: 18px;
+      font-size: 66px;
+    }
+
+    .decoratie.twee {
+      left: 40px;
+      bottom: 12px;
+      font-size: 24px;
+      letter-spacing: 4px;
     }
 
     .layout {
+      position: relative;
+      z-index: 2;
       width: 100%;
       height: 100%;
       display: grid;
-      grid-template-rows: 108px 250px 82px;
+      grid-template-rows: 120px 248px 70px;
       gap: 12px;
     }
 
     .header {
       display: grid;
-      grid-template-columns: 1fr 240px;
+      grid-template-columns: 1fr 245px;
       gap: 18px;
       min-height: 0;
     }
@@ -53,7 +77,7 @@
     .titelvak,
     .infovak,
     .intro,
-    .spel,
+    .venster,
     .knoppen,
     .cta {
       overflow: hidden;
@@ -61,51 +85,51 @@
 
     .label {
       display: inline-block;
-      padding: 6px 13px;
+      padding: 7px 14px;
       border-radius: 999px;
       background: #facc15;
       color: #111827;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 900;
-      margin-bottom: 7px;
-      box-shadow: 3px 3px 0 rgba(0,0,0,0.22);
+      margin-bottom: 8px;
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.22);
     }
 
     h1 {
       margin: 0;
-      font-size: 39px;
+      font-size: 44px;
       line-height: 1;
-      text-shadow: 3px 3px 0 rgba(0,0,0,0.22);
+      text-shadow: 4px 4px 0 rgba(0,0,0,0.24);
     }
 
     .subtitel {
-      margin: 7px 0 0;
-      max-width: 625px;
-      font-size: 15px;
-      line-height: 1.25;
+      margin: 8px 0 0;
+      max-width: 630px;
+      font-size: 16px;
+      line-height: 1.3;
       color: #e0f2fe;
       font-weight: 800;
     }
 
     .infovak {
-      height: 108px;
-      padding: 14px;
-      border-radius: 18px;
+      height: 120px;
+      padding: 15px;
+      border-radius: 19px;
       background: rgba(255,255,255,0.95);
       color: #111827;
       box-shadow: 7px 7px 0 rgba(0,0,0,0.22);
     }
 
     .infovak h2 {
-      margin: 0 0 5px;
-      font-size: 20px;
+      margin: 0 0 6px;
+      font-size: 22px;
       color: #0f766e;
     }
 
     .infovak p {
       margin: 0;
-      font-size: 13px;
-      line-height: 1.25;
+      font-size: 14px;
+      line-height: 1.28;
       font-weight: 800;
     }
 
@@ -117,8 +141,8 @@
     }
 
     .intro {
-      height: 250px;
-      padding: 18px;
+      height: 248px;
+      padding: 19px;
       border-radius: 22px;
       background: rgba(255,255,255,0.96);
       color: #111827;
@@ -126,15 +150,15 @@
     }
 
     .intro h2 {
-      margin: 0 0 8px;
-      font-size: 23px;
+      margin: 0 0 9px;
+      font-size: 25px;
       color: #0f766e;
     }
 
     .intro p {
       margin: 0 0 10px;
-      font-size: 14px;
-      line-height: 1.28;
+      font-size: 14.5px;
+      line-height: 1.32;
       font-weight: 700;
     }
 
@@ -142,23 +166,23 @@
       margin-top: 8px;
       padding: 9px 10px;
       border-radius: 14px;
-      background: #dcfce7;
-      color: #14532d;
+      background: #dbeafe;
+      color: #1e3a8a;
       font-size: 13px;
-      line-height: 1.22;
+      line-height: 1.25;
       font-weight: 900;
     }
 
-    .spel {
-      height: 250px;
-      padding: 18px;
+    .venster {
+      height: 248px;
+      padding: 19px;
       border-radius: 22px;
       background: rgba(15,23,42,0.92);
       border: 1px solid rgba(255,255,255,0.18);
       box-shadow: 8px 8px 0 rgba(0,0,0,0.22);
     }
 
-    .spel-label {
+    .venster-label {
       display: inline-block;
       padding: 6px 12px;
       border-radius: 999px;
@@ -169,25 +193,25 @@
       margin-bottom: 9px;
     }
 
-    .spel h2 {
+    .venster h2 {
       margin: 0 0 8px;
-      font-size: 27px;
+      font-size: 29px;
       line-height: 1.05;
       color: #ffffff;
     }
 
-    .spel p {
+    .venster p {
       margin: 0;
-      height: 74px;
-      font-size: 15px;
-      line-height: 1.28;
+      height: 85px;
+      font-size: 15.5px;
+      line-height: 1.34;
       font-weight: 700;
       color: #e2e8f0;
       overflow: hidden;
     }
 
     .tags {
-      margin-top: 12px;
+      margin-top: 13px;
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
@@ -208,26 +232,26 @@
 
     .onder {
       display: grid;
-      grid-template-columns: 1fr 165px;
+      grid-template-columns: 1fr 170px;
       gap: 14px;
       min-height: 0;
     }
 
     .knoppen {
-      height: 82px;
+      height: 70px;
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
+      gap: 8px;
       align-content: flex-start;
     }
 
-    .spelknop {
-      height: 30px;
-      padding: 0 10px;
+    .tab {
+      height: 31px;
+      padding: 0 12px;
       border: none;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 900;
       color: #ffffff;
       background: rgba(255,255,255,0.17);
@@ -235,21 +259,22 @@
       white-space: nowrap;
     }
 
-    .spelknop.actief {
+    .tab.actief {
       background: #facc15;
       color: #111827;
       border-color: #facc15;
     }
 
     .cta {
-      height: 70px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       border-radius: 22px;
-      background: linear-gradient(135deg, #facc15, #fb923c);
-      color: #111827;
-      font-size: 23px;
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+      color: #052e16;
+      font-size: 21px;
       font-weight: 900;
       box-shadow: 6px 6px 0 rgba(0,0,0,0.25);
     }
@@ -258,126 +283,118 @@
 
 <body>
   <main class="pagina">
+    <div class="decoratie een">&lt;/&gt;</div>
+    <div class="decoratie twee">SKILLS • PORTFOLIO • TOEKOMST</div>
+
     <div class="layout">
       <section class="header">
         <div class="titelvak">
-          <div class="label">Introweek • Sportdag</div>
-          <h1>Sportdag vol actie!</h1>
+          <div class="label">Beroepsproject • ICT</div>
+          <h1>Your future in ICT</h1>
           <p class="subtitel">
-            Een spelcarrousel met actie, teamwork en fun. Klik op een onderdeel voor meer info.
+            Ontdek welke ICT-richting bij jou past en bouw vanaf het begin aan jouw eigen portfolio.
           </p>
         </div>
 
         <div class="infovak">
-          <h2>Waarom meedoen?</h2>
-          <p>Je leert je klas kennen, beweegt samen en ontdekt waar jouw team goed in is.</p>
+          <h2>Verken je toekomst</h2>
+          <p>Je onderzoekt wat werken in de ICT betekent en welke skills jij al hebt of nog gaat ontwikkelen.</p>
         </div>
       </section>
 
       <section class="midden">
         <article class="intro">
-          <h2>Wat gaan we doen?</h2>
+          <h2>Waar gaat dit project over?</h2>
           <p>
-            Je gaat met je team verschillende onderdelen langs.
-            Soms sportief, soms tactisch en soms creatief.
+            Je bent net gestart met ICT. In dit project ontdek je wat een ICT’er doet,
+            welke beroepen er zijn en wat bij jou past.
           </p>
           <p>
-            Het gaat om samenwerken, proberen, lachen en een goede start maken in de introweek.
+            Je gaat aan de slag met opdrachten, skills en voorbeelden uit de echte ICT-wereld.
           </p>
           <div class="highlight">
-            Buiten als het kan, binnen als het moet. De sportdag gaat gewoon door.
+            Alles wat je maakt, kun je gebruiken voor je portfolio, stage en toekomst.
           </div>
         </article>
 
-        <article class="spel">
-          <div class="spel-label">Spelcarrousel</div>
-          <h2 id="spelTitel">Voetbal</h2>
-          <p id="spelTekst">
-            Werk samen, laat je skills zien en probeer met je team te scoren.
+        <article class="venster">
+          <div class="venster-label">Klik op een onderdeel</div>
+          <h2 id="titel">Jouw ICT-skills</h2>
+          <p id="tekst">
+            Wat kun jij al goed? Denk aan logisch nadenken, samenwerken, problemen oplossen, netjes werken en nieuwsgierig blijven.
           </p>
-          <div class="tags" id="spelTags">
-            <span class="tag">teamwork</span>
-            <span class="tag">actie</span>
-            <span class="tag">energie</span>
+          <div class="tags" id="tags">
+            <span class="tag">onderzoeken</span>
+            <span class="tag">skills</span>
+            <span class="tag">zelfkennis</span>
           </div>
         </article>
       </section>
 
       <section class="onder">
         <div class="knoppen">
-          <button class="spelknop actief" onclick="toonSpel('voetbal', this)">Voetbal</button>
-          <button class="spelknop" onclick="toonSpel('stratego', this)">Levend stratego</button>
-          <button class="spelknop" onclick="toonSpel('logokwis', this)">Logokwis</button>
-          <button class="spelknop" onclick="toonSpel('bootcamp', this)">Bootcamp</button>
-          <button class="spelknop" onclick="toonSpel('tennis', this)">Tennis</button>
-          <button class="spelknop" onclick="toonSpel('paddel', this)">Paddel</button>
-          <button class="spelknop" onclick="toonSpel('kickboxen', this)">Kickboxen</button>
-          <button class="spelknop" onclick="toonSpel('hanoi', this)">Toren van Hanoi</button>
+          <button class="tab actief" onclick="toonInfo('skills', this)">Jouw skills</button>
+          <button class="tab" onclick="toonInfo('beroepen', this)">ICT-beroepen</button>
+          <button class="tab" onclick="toonInfo('portfolio', this)">Portfolio</button>
+          <button class="tab" onclick="toonInfo('toekomst', this)">Toekomst</button>
+          <button class="tab" onclick="toonInfo('samenwerken', this)">Samenwerken</button>
+          <button class="tab" onclick="toonInfo('groeien', this)">Groeien</button>
         </div>
 
-        <div class="cta">Doe mee!</div>
+        <div class="cta"><a href="https://stichtingpraktijkleren.nl" target="_blank" rel="noopener noreferrer">Start jouw route!</a>
+</div>
       </section>
     </div>
   </main>
 
   <script>
-    const spellen = {
-      voetbal: {
-        titel: "Voetbal",
-        tekst: "Werk samen, laat je skills zien en probeer met je team te scoren.",
-        tags: ["teamwork", "actie", "energie"]
+    const info = {
+      skills: {
+        titel: "Jouw ICT-skills",
+        tekst: "Wat kun jij al goed? Denk aan logisch nadenken, samenwerken, problemen oplossen, netjes werken en nieuwsgierig blijven.",
+        tags: ["onderzoeken", "skills", "zelfkennis"]
       },
-      stratego: {
-        titel: "Levend stratego",
-        tekst: "Ren, denk tactisch en probeer het andere team te slim af te zijn.",
-        tags: ["tactiek", "rennen", "samen"]
+      beroepen: {
+        titel: "ICT-beroepen",
+        tekst: "Je ontdekt welke banen er zijn in de ICT, zoals software developer, supportmedewerker, netwerkbeheerder of cybersecurity-specialist.",
+        tags: ["beroepen", "keuzes", "oriëntatie"]
       },
-      logokwis: {
-        titel: "Logokwis",
-        tekst: "Herken logo’s, denk snel en gebruik de kennis van je team.",
-        tags: ["quiz", "denken", "snel"]
+      portfolio: {
+        titel: "Jouw portfolio",
+        tekst: "Je verzamelt opdrachten, bewijzen en reflecties. Zo laat je zien wat je leert en waar je trots op bent.",
+        tags: ["bewijzen", "reflectie", "groei"]
       },
-      bootcamp: {
-        titel: "Bootcamp",
-        tekst: "Ga de challenge aan met kracht, conditie en doorzettingsvermogen.",
-        tags: ["kracht", "conditie", "challenge"]
+      toekomst: {
+        titel: "Jouw toekomst",
+        tekst: "Je onderzoekt welke richting in ICT bij jou past. Niet alles hoeft nu duidelijk te zijn: je gaat het stap voor stap ontdekken.",
+        tags: ["richting", "keuzes", "toekomst"]
       },
-      tennis: {
-        titel: "Tennis",
-        tekst: "Test je timing, focus en reactiesnelheid op een sportieve manier.",
-        tags: ["focus", "reactie", "techniek"]
+      samenwerken: {
+        titel: "Samenwerken",
+        tekst: "In ICT werk je vaak met anderen. Je leert uitleggen, luisteren, feedback geven en samen slimme oplossingen bedenken.",
+        tags: ["teamwork", "feedback", "communicatie"]
       },
-      paddel: {
-        titel: "Paddel",
-        tekst: "Snel, actief en leuk om samen te spelen in duo’s.",
-        tags: ["snel", "fun", "duo"]
-      },
-      kickboxen: {
-        titel: "Kickboxen",
-        tekst: "Werk aan controle, techniek, respect en focus in een veilige setting.",
-        tags: ["respect", "focus", "controle"]
-      },
-      hanoi: {
-        titel: "Toren van Hanoi",
-        tekst: "Los samen een slimme puzzel op door logisch te denken en te plannen.",
-        tags: ["puzzel", "strategie", "denken"]
+      groeien: {
+        titel: "Groeien als ICT’er",
+        tekst: "Je hoeft nog niet alles te kunnen. Belangrijk is dat je blijft proberen, vragen stelt en leert van fouten.",
+        tags: ["doorzetten", "leren", "ontwikkelen"]
       }
     };
 
-    function toonSpel(sleutel, knop) {
-      document.getElementById("spelTitel").textContent = spellen[sleutel].titel;
-      document.getElementById("spelTekst").textContent = spellen[sleutel].tekst;
+    function toonInfo(sleutel, knop) {
+      document.getElementById("titel").textContent = info[sleutel].titel;
+      document.getElementById("tekst").textContent = info[sleutel].tekst;
 
-      const tagsContainer = document.getElementById("spelTags");
+      const tagsContainer = document.getElementById("tags");
       tagsContainer.innerHTML = "";
-      spellen[sleutel].tags.forEach(tag => {
+      info[sleutel].tags.forEach(tag => {
         const span = document.createElement("span");
         span.className = "tag";
         span.textContent = tag;
         tagsContainer.appendChild(span);
       });
 
-      document.querySelectorAll(".spelknop").forEach(button => button.classList.remove("actief"));
+      document.querySelectorAll(".tab").forEach(button => button.classList.remove("actief"));
       knop.classList.add("actief");
     }
   </script>
