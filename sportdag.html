@@ -6,7 +6,9 @@
   <title>Sportdag Introweek</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -21,112 +23,88 @@
     .pagina {
       width: 1000px;
       height: 500px;
-      position: relative;
-      overflow: hidden;
+      padding: 24px 34px;
       border-radius: 20px;
       color: white;
+      overflow: hidden;
       background:
-        radial-gradient(circle at 12% 16%, rgba(34,197,94,0.32), transparent 28%),
-        radial-gradient(circle at 84% 18%, rgba(59,130,246,0.35), transparent 30%),
-        radial-gradient(circle at 86% 86%, rgba(251,191,36,0.24), transparent 28%),
+        radial-gradient(circle at 12% 18%, rgba(34,197,94,0.30), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(59,130,246,0.34), transparent 30%),
+        radial-gradient(circle at 86% 86%, rgba(251,191,36,0.22), transparent 28%),
         linear-gradient(135deg, #0f172a 0%, #0f766e 45%, #2563eb 100%);
       box-shadow: 0 24px 55px rgba(0,0,0,0.45);
     }
 
-    .pagina::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.13);
-      z-index: 1;
-    }
-
-    .decoratie {
-      position: absolute;
-      z-index: 1;
-      color: rgba(255,255,255,0.08);
-      font-weight: 900;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .decoratie.een {
-      right: 42px;
-      top: 16px;
-      font-size: 62px;
-    }
-
-    .decoratie.twee {
-      left: 42px;
-      bottom: 12px;
-      font-size: 24px;
-      letter-spacing: 4px;
-    }
-
-    .inhoud {
-      position: relative;
-      z-index: 3;
+    .layout {
       width: 100%;
       height: 100%;
-      padding: 24px 36px;
       display: grid;
-      grid-template-rows: 112px 250px 78px;
+      grid-template-rows: 108px 250px 82px;
       gap: 12px;
     }
 
-    .kop {
+    .header {
       display: grid;
-      grid-template-columns: 1fr 230px;
+      grid-template-columns: 1fr 240px;
       gap: 18px;
-      align-items: start;
+      min-height: 0;
+    }
+
+    .titelvak,
+    .infovak,
+    .intro,
+    .spel,
+    .knoppen,
+    .cta {
+      overflow: hidden;
     }
 
     .label {
       display: inline-block;
-      padding: 6px 14px;
+      padding: 6px 13px;
       border-radius: 999px;
       background: #facc15;
       color: #111827;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 900;
-      margin-bottom: 8px;
-      box-shadow: 4px 4px 0 rgba(0,0,0,0.22);
+      margin-bottom: 7px;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.22);
     }
 
     h1 {
       margin: 0;
-      font-size: 44px;
-      line-height: 0.95;
-      text-shadow: 4px 4px 0 rgba(0,0,0,0.20);
+      font-size: 39px;
+      line-height: 1;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.22);
     }
 
     .subtitel {
-      margin: 8px 0 0;
-      width: 620px;
-      font-size: 16px;
+      margin: 7px 0 0;
+      max-width: 625px;
+      font-size: 15px;
       line-height: 1.25;
       color: #e0f2fe;
       font-weight: 800;
     }
 
-    .badge {
+    .infovak {
       height: 108px;
       padding: 14px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.94);
+      background: rgba(255,255,255,0.95);
       color: #111827;
       box-shadow: 7px 7px 0 rgba(0,0,0,0.22);
     }
 
-    .badge h2 {
-      margin: 0 0 6px;
-      font-size: 21px;
+    .infovak h2 {
+      margin: 0 0 5px;
+      font-size: 20px;
       color: #0f766e;
     }
 
-    .badge p {
+    .infovak p {
       margin: 0;
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.25;
       font-weight: 800;
     }
@@ -138,43 +116,44 @@
       min-height: 0;
     }
 
-    .introkaart {
+    .intro {
       height: 250px;
-      padding: 20px;
+      padding: 18px;
       border-radius: 22px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       color: #111827;
       box-shadow: 8px 8px 0 rgba(0,0,0,0.22);
     }
 
-    .introkaart h2 {
-      margin: 0 0 10px;
-      font-size: 25px;
+    .intro h2 {
+      margin: 0 0 8px;
+      font-size: 23px;
       color: #0f766e;
     }
 
-    .introkaart p {
-      margin: 0 0 12px;
-      font-size: 15px;
-      line-height: 1.32;
+    .intro p {
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 1.28;
       font-weight: 700;
     }
 
-    .introkaart .highlight {
-      padding: 10px 12px;
+    .highlight {
+      margin-top: 8px;
+      padding: 9px 10px;
       border-radius: 14px;
       background: #dcfce7;
       color: #14532d;
-      font-size: 14px;
-      line-height: 1.25;
+      font-size: 13px;
+      line-height: 1.22;
       font-weight: 900;
     }
 
-    .spelvenster {
+    .spel {
       height: 250px;
-      padding: 18px 20px;
+      padding: 18px;
       border-radius: 22px;
-      background: rgba(15,23,42,0.90);
+      background: rgba(15,23,42,0.92);
       border: 1px solid rgba(255,255,255,0.18);
       box-shadow: 8px 8px 0 rgba(0,0,0,0.22);
     }
@@ -185,77 +164,75 @@
       border-radius: 999px;
       background: #22c55e;
       color: #052e16;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 900;
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
-    .spelvenster h2 {
+    .spel h2 {
       margin: 0 0 8px;
-      font-size: 28px;
-      color: #f8fafc;
+      font-size: 27px;
+      line-height: 1.05;
+      color: #ffffff;
     }
 
-    .spelvenster p {
+    .spel p {
       margin: 0;
-      height: 84px;
-      font-size: 16px;
-      line-height: 1.35;
+      height: 74px;
+      font-size: 15px;
+      line-height: 1.28;
       font-weight: 700;
       color: #e2e8f0;
       overflow: hidden;
     }
 
     .tags {
-      margin-top: 14px;
+      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
+      max-height: 66px;
+      overflow: hidden;
     }
 
     .tag {
-      padding: 7px 11px;
+      padding: 6px 10px;
       border-radius: 999px;
       background: rgba(255,255,255,0.13);
       color: #d1fae5;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
       border: 1px solid rgba(255,255,255,0.10);
+      white-space: nowrap;
     }
 
     .onder {
       display: grid;
       grid-template-columns: 1fr 165px;
       gap: 14px;
-      align-items: start;
+      min-height: 0;
     }
 
-    .carrousel {
+    .knoppen {
+      height: 82px;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      max-height: 78px;
-      overflow: hidden;
+      gap: 7px;
+      align-content: flex-start;
     }
 
     .spelknop {
-      height: 32px;
-      padding: 0 12px;
+      height: 30px;
+      padding: 0 10px;
       border: none;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 900;
       color: #ffffff;
-      background: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.17);
       border: 1px solid rgba(255,255,255,0.18);
-      transition: transform 0.18s ease, background 0.18s ease;
       white-space: nowrap;
-    }
-
-    .spelknop:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.23);
     }
 
     .spelknop.actief {
@@ -264,7 +241,7 @@
       border-color: #facc15;
     }
 
-    .doemee {
+    .cta {
       height: 70px;
       display: flex;
       align-items: center;
@@ -272,7 +249,7 @@
       border-radius: 22px;
       background: linear-gradient(135deg, #facc15, #fb923c);
       color: #111827;
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 900;
       box-shadow: 6px 6px 0 rgba(0,0,0,0.25);
     }
@@ -281,46 +258,42 @@
 
 <body>
   <main class="pagina">
-    <div class="decoratie een">⚽</div>
-    <div class="decoratie twee">SPORT • TEAMWORK • FUN</div>
-
-    <div class="inhoud">
-      <section class="kop">
-        <div>
+    <div class="layout">
+      <section class="header">
+        <div class="titelvak">
           <div class="label">Introweek • Sportdag</div>
           <h1>Sportdag vol actie!</h1>
           <p class="subtitel">
-            Geen saaie dag, maar een spelcarrousel met actie, fun en teamwork.
+            Een spelcarrousel met actie, teamwork en fun. Klik op een onderdeel voor meer info.
           </p>
         </div>
 
-        <div class="badge">
-          <h2>Waarom tof?</h2>
-          <p>Je leert je klas op een andere manier kennen en komt meteen lekker in beweging.</p>
+        <div class="infovak">
+          <h2>Waarom meedoen?</h2>
+          <p>Je leert je klas kennen, beweegt samen en ontdekt waar jouw team goed in is.</p>
         </div>
       </section>
 
       <section class="midden">
-        <article class="introkaart">
+        <article class="intro">
           <h2>Wat gaan we doen?</h2>
           <p>
-            Je gaat in teams verschillende onderdelen langs. Soms sportief,
-            soms tactisch en soms juist creatief.
+            Je gaat met je team verschillende onderdelen langs.
+            Soms sportief, soms tactisch en soms creatief.
           </p>
           <p>
-            Het draait niet alleen om winnen, maar om samenwerken,
-            proberen en plezier maken.
+            Het gaat om samenwerken, proberen, lachen en een goede start maken in de introweek.
           </p>
           <div class="highlight">
-            Buiten als het kan, binnen als het moet. De sportdag gaat gewoon door!
+            Buiten als het kan, binnen als het moet. De sportdag gaat gewoon door.
           </div>
         </article>
 
-        <article class="spelvenster">
-          <div class="spel-label">Klik op een onderdeel</div>
+        <article class="spel">
+          <div class="spel-label">Spelcarrousel</div>
           <h2 id="spelTitel">Voetbal</h2>
           <p id="spelTekst">
-            Werk samen met je team, laat je skills zien en probeer samen te scoren.
+            Werk samen, laat je skills zien en probeer met je team te scoren.
           </p>
           <div class="tags" id="spelTags">
             <span class="tag">teamwork</span>
@@ -331,7 +304,7 @@
       </section>
 
       <section class="onder">
-        <div class="carrousel">
+        <div class="knoppen">
           <button class="spelknop actief" onclick="toonSpel('voetbal', this)">Voetbal</button>
           <button class="spelknop" onclick="toonSpel('stratego', this)">Levend stratego</button>
           <button class="spelknop" onclick="toonSpel('logokwis', this)">Logokwis</button>
@@ -342,7 +315,7 @@
           <button class="spelknop" onclick="toonSpel('hanoi', this)">Toren van Hanoi</button>
         </div>
 
-        <div class="doemee">Doe mee!</div>
+        <div class="cta">Doe mee!</div>
       </section>
     </div>
   </main>
@@ -351,17 +324,17 @@
     const spellen = {
       voetbal: {
         titel: "Voetbal",
-        tekst: "Werk samen met je team, laat je skills zien en probeer samen te scoren.",
+        tekst: "Werk samen, laat je skills zien en probeer met je team te scoren.",
         tags: ["teamwork", "actie", "energie"]
       },
       stratego: {
         titel: "Levend stratego",
-        tekst: "Ren, denk tactisch en werk samen om het andere team te slim af te zijn.",
+        tekst: "Ren, denk tactisch en probeer het andere team te slim af te zijn.",
         tags: ["tactiek", "rennen", "samen"]
       },
       logokwis: {
         titel: "Logokwis",
-        tekst: "Herken logo’s, denk snel en gebruik de kennis van je hele team.",
+        tekst: "Herken logo’s, denk snel en gebruik de kennis van je team.",
         tags: ["quiz", "denken", "snel"]
       },
       bootcamp: {
@@ -376,7 +349,7 @@
       },
       paddel: {
         titel: "Paddel",
-        tekst: "Snel, actief en superleuk om samen te spelen in duo’s.",
+        tekst: "Snel, actief en leuk om samen te spelen in duo’s.",
         tags: ["snel", "fun", "duo"]
       },
       kickboxen: {
