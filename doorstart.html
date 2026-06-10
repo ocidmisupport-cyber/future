@@ -22,6 +22,8 @@
 
     .container {
       padding: 30px;
+      position: relative;
+      z-index: 2;
     }
 
     h1 {
@@ -52,12 +54,36 @@
       opacity: 0.75;
       pointer-events: none;
       animation: beweeg 1s infinite linear;
+      z-index: 1;
     }
 
     @keyframes beweeg {
       from { transform: translateY(100vh); }
       to { transform: translateY(-120vh); }
     }
+
+    .monster {
+      position: absolute;
+      font-size: 42px;
+      z-index: 3;
+      animation: lopen 4s linear infinite;
+    }
+
+    @keyframes lopen {
+      from {
+        left: -80px;
+        transform: scaleX(1);
+      }
+      to {
+        left: 110vw;
+        transform: scaleX(1);
+      }
+    }
+
+    .monster:nth-child(1) { top: 70%; animation-duration: 3s; }
+    .monster:nth-child(2) { top: 80%; animation-duration: 5s; animation-delay: 0.5s; }
+    .monster:nth-child(3) { top: 60%; animation-duration: 4s; animation-delay: 1s; }
+    .monster:nth-child(4) { top: 88%; animation-duration: 6s; animation-delay: 1.5s; }
   </style>
 </head>
 
@@ -86,9 +112,14 @@
     </div>
   </div>
 
+  <div class="monster">👾</div>
+  <div class="monster">👹</div>
+  <div class="monster">🧟</div>
+  <div class="monster">👻</div>
+
   <script>
-    const doelPagina = "https://teraa-canvas.instructure.com/courses/677/pages/welkom-bij-ict-2" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://teraa-canvas.instructure.com/api/v1/courses/677/pages/welkom-bij-ict-2" data-api-returntype=";
-    const wachttijd = 2000; // 2000 = 2 seconden
+    const doelPagina = "https://teraa-canvas.instructure.com/courses/677/pages/welkom-bij-ict-2";
+    const wachttijd = 2000;
 
     const meldingen = [
       "404 NOT FOUND",
