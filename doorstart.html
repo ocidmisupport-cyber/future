@@ -31,9 +31,10 @@
     }
 
     .warning {
-      font-size: 24px;
+      font-size: 26px;
       color: yellow;
       margin-top: 20px;
+      text-shadow: 0 0 10px yellow;
     }
 
     .box {
@@ -42,6 +43,7 @@
       margin-top: 20px;
       background: rgba(255, 0, 0, 0.1);
       box-shadow: 0 0 25px red;
+      font-size: 18px;
     }
 
     .glitch {
@@ -49,25 +51,19 @@
       font-size: 18px;
       opacity: 0.7;
       animation: beweeg 1s infinite linear;
+      pointer-events: none;
     }
 
     @keyframes beweeg {
       from { transform: translateY(100vh); }
       to { transform: translateY(-100vh); }
     }
-
-    iframe {
-      display: none;
-      width: 100vw;
-      height: 100vh;
-      border: none;
-    }
   </style>
 </head>
 
 <body>
 
-  <div id="crash" class="container">
+  <div class="container">
     <h1>404 ERROR</h1>
 
     <div class="warning">
@@ -81,21 +77,19 @@
       SECURITY WARNING<br>
       CONNECTION UNTRUSTED<br>
       DATA STREAM CORRUPTED<br>
-      FIREWALL BREACH DETECTED
+      FIREWALL BREACH DETECTED<br>
+      PAGE RECOVERY STARTED...
     </div>
 
     <div class="box">
-      Automatisch herstellen...
+      Automatisch herstellen... moment geduld.
     </div>
   </div>
 
   <script>
-  setTimeout(() => {
-    window.location.href = "href="https://teraa-canvas.instructure.com/courses/677/pages/welkom-bij-ict-2" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://teraa-canvas.instructure.com/api/v1/courses/677/pages/welkom-bij-ict-2" data-api-returntype=";
-  }, 2000);
-</script>
+    const doelPagina = "https://teraa-canvas.instructure.com/courses/677/pages/welkom-bij-ict-2";
+    const wachttijd = 2000;
 
-  <script>
     const meldingen = [
       "404 NOT FOUND",
       "UNSAFE CONNECTION",
@@ -104,7 +98,9 @@
       "ACCESS DENIED",
       "WARNING",
       "ERROR",
-      "SECURITY ALERT"
+      "SECURITY ALERT",
+      "LOADING RECOVERY",
+      "FIREWALL ALERT"
     ];
 
     for (let i = 0; i < 40; i++) {
@@ -112,16 +108,14 @@
       tekst.className = "glitch";
       tekst.innerText = meldingen[Math.floor(Math.random() * meldingen.length)];
       tekst.style.left = Math.random() * 100 + "vw";
+      tekst.style.top = Math.random() * 100 + "vh";
       tekst.style.animationDelay = Math.random() * 2 + "s";
       document.body.appendChild(tekst);
     }
 
     setTimeout(() => {
-      document.getElementById("crash").style.display = "none";
-      document.getElementById("pagina").style.display = "block";
-      document.body.style.animation = "none";
-      document.body.style.background = "white";
-    }, 2000);
+      window.location.href = doelPagina;
+    }, wachttijd);
   </script>
 
 </body>
