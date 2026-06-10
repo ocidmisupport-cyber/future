@@ -1,13 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
-<title>Automatisch doorsturen</title>
+  <meta charset="UTF-8">
+  <title>404 - Systeemfout</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #050505;
+      color: #ff2b2b;
+      font-family: Consolas, monospace;
+      overflow: hidden;
+      animation: flikker 0.15s infinite;
+    }
+
+    @keyframes flikker {
+      0% { background: #050505; }
+      50% { background: #120000; }
+      100% { background: #050505; }
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 70px;
+      margin: 0;
+      text-shadow: 0 0 20px red;
+    }
+
+    .warning {
+      font-size: 24px;
+      color: yellow;
+      margin-top: 20px;
+    }
+
+    .box {
+      border: 2px solid red;
+      padding: 15px;
+      margin-top: 20px;
+      background: rgba(255, 0, 0, 0.1);
+      box-shadow: 0 0 25px red;
+    }
+
+    .glitch {
+      position: absolute;
+      font-size: 18px;
+      opacity: 0.7;
+      animation: beweeg 1s infinite linear;
+    }
+
+    @keyframes beweeg {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-100vh); }
+    }
+
+    iframe {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
 </head>
+
 <body>
 
-<script>
-window.top.location.href = "https://teraa-canvas.instructure.com/courses/677/modules/items/8013";
+  <div id="crash" class="container">
+    <h1>404 ERROR</h1>
+
+    <div class="warning">
+      ⚠ ONVEILIGE SITE GEDETECTEERD ⚠
+    </div>
+
+    <div class="box">
+      SYSTEM FAILURE<br>
+      ACCESS DENIED<br>
+      ERROR 404: PAGE NOT FOUND<br>
+      SECURITY WARNING<br>
+      CONNECTION UNTRUSTED<br>
+      DATA STREAM CORRUPTED<br>
+      FIREWALL BREACH DETECTED
+    </div>
+
+    <div class="box">
+      Automatisch herstellen...
+    </div>
+  </div>
+
+  <script>
+window.top.location.href = "https://teraa-canvas.instructure.com/courses/678/modules/items/8013";
 </script>
+
+  <script>
+    const meldingen = [
+      "404 NOT FOUND",
+      "UNSAFE CONNECTION",
+      "CERTIFICATE ERROR",
+      "SYSTEM CRASH",
+      "ACCESS DENIED",
+      "WARNING",
+      "ERROR",
+      "SECURITY ALERT"
+    ];
+
+    for (let i = 0; i < 40; i++) {
+      const tekst = document.createElement("div");
+      tekst.className = "glitch";
+      tekst.innerText = meldingen[Math.floor(Math.random() * meldingen.length)];
+      tekst.style.left = Math.random() * 100 + "vw";
+      tekst.style.animationDelay = Math.random() * 2 + "s";
+      document.body.appendChild(tekst);
+    }
+
+    setTimeout(() => {
+      document.getElementById("crash").style.display = "none";
+      document.getElementById("pagina").style.display = "block";
+      document.body.style.animation = "none";
+      document.body.style.background = "white";
+    }, 2000);
+  </script>
 
 </body>
 </html>
