@@ -16,7 +16,7 @@
 
     @keyframes flikker {
       0% { background: #050505; }
-      50% { background: #120000; }
+      50% { background: #220000; }
       100% { background: #050505; }
     }
 
@@ -34,14 +34,14 @@
       font-size: 26px;
       color: yellow;
       margin-top: 20px;
-      text-shadow: 0 0 10px yellow;
+      text-shadow: 0 0 12px yellow;
     }
 
     .box {
       border: 2px solid red;
       padding: 15px;
       margin-top: 20px;
-      background: rgba(255, 0, 0, 0.1);
+      background: rgba(255, 0, 0, 0.12);
       box-shadow: 0 0 25px red;
       font-size: 18px;
     }
@@ -49,14 +49,14 @@
     .glitch {
       position: absolute;
       font-size: 18px;
-      opacity: 0.7;
-      animation: beweeg 1s infinite linear;
+      opacity: 0.75;
       pointer-events: none;
+      animation: beweeg 1s infinite linear;
     }
 
     @keyframes beweeg {
       from { transform: translateY(100vh); }
-      to { transform: translateY(-100vh); }
+      to { transform: translateY(-120vh); }
     }
   </style>
 </head>
@@ -82,13 +82,13 @@
     </div>
 
     <div class="box">
-      Automatisch herstellen... moment geduld.
+      Automatisch herstellen...
     </div>
   </div>
 
   <script>
-    const doelPagina = "https://teraa-canvas.instructure.com/courses/677/pages/welkom-bij-ict-2" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://teraa-canvas.instructure.com/api/v1/courses/677/pages/welkom-bij-ict-2" data-api-returntype=";
-    const wachttijd = 2000;
+    const doelPagina = "https://teraa-canvas.instructure.com/courses/677/pages/welkom-bij-ict-2";
+    const wachttijd = 2000; // 2000 = 2 seconden
 
     const meldingen = [
       "404 NOT FOUND",
@@ -99,11 +99,11 @@
       "WARNING",
       "ERROR",
       "SECURITY ALERT",
-      "LOADING RECOVERY",
-      "FIREWALL ALERT"
+      "FIREWALL ALERT",
+      "RECOVERY MODE"
     ];
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 45; i++) {
       const tekst = document.createElement("div");
       tekst.className = "glitch";
       tekst.innerText = meldingen[Math.floor(Math.random() * meldingen.length)];
@@ -114,7 +114,7 @@
     }
 
     setTimeout(() => {
-      window.location.href = doelPagina;
+      window.top.location.href = doelPagina;
     }, wachttijd);
   </script>
 
